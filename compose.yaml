@@ -1,1 +1,20 @@
-services: {}
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: gym
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev123
+    ports:
+      - "5432:5432"
+    volumes:
+      - gym-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev -d gym"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  gym-postgres-data:
