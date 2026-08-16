@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @RequiredArgsConstructor
 @Getter
@@ -26,5 +29,8 @@ public class Exercicios {
     private String descricao;
     @Column(name = "status_aluno")
     private EStatusAluno statusAluno;
+
+    @OneToMany(mappedBy = "exercicio")
+    private List<ExercicioFicha> exercicioFichas = new ArrayList<>();
 
 }

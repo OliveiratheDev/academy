@@ -31,7 +31,6 @@ public class FichaTreino {
     @JoinColumn(name = "aluno_id", nullable = false)
     private AlunoEntity aluno;
 
-
-    @OneToMany(mappedBy = "fichaTreino")
+    @OneToMany(mappedBy = "ficha_treino_id")
     private List<ExercicioFicha>  exercicioFichas = new ArrayList<>();
 }
