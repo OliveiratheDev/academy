@@ -1,8 +1,10 @@
 package com.academy.gym.database.model;
 
+import com.academy.gym.dtos.AlunoRequest;
 import com.academy.gym.enums.EStatusAluno;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -20,17 +22,32 @@ public class AlunoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+
+    @NotNull(message = "O nome é obrigatório")
+    @Column(nullable = false, length = 40)
     private String nome;
-    @Column(nullable = false)
+
+    @NotNull(message = "O email é obrigatório")
+    @Column(nullable = false, length = 140)
     private String email;
-    @Column(nullable = false)
-    private Integer cpf;
+
+    @NotNull(message = "O CPF é obrigatório")
+    @Column(nullable = false, length = 11)
+    private String cpf;
+
+    @NotNull(message = "A data de nascimento é obrigatória")
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
+
+    @NotNull(message = "O telefone é obrigatório")
+    @Column(nullable = false, length = 11)
+    private String telefone;
+
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Integer telefone;
-    private EStatusAluno status;
+    private EStatusAluno status = EStatusAluno.ATIVO;
+
+
     @Valid
     @Column(name = "criado_em")
     private LocalDate criadoEm = LocalDate.now();
