@@ -11,4 +11,5 @@ public interface IAlunoRepository extends JpaRepository<AlunoEntity, Long> {
      Optional<AlunoEntity> findByCpf(String cpf);
      List<AlunoEntity> findAll();
      Optional<AlunoEntity> findByEmail(String email);
+     Optional<AlunoEntity> findByMatricula(String matricula);
 }
