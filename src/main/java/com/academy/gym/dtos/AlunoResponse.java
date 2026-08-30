@@ -8,7 +8,7 @@ public record AlunoResponse(
         Long id,
         String nome,
         String email,
-        LocalDate dataNascimento,
+        String dataNascimento,
         EStatusAluno statusAluno,
         LocalDate criadoEm
 ) {
