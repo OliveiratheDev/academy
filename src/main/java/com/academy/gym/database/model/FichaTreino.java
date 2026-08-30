@@ -21,8 +21,12 @@ public class FichaTreino {
     private Long id;
     @Column(nullable = false)
     private String nome;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "objetivo_treino")
     private EObjetivoTreino objetivoTreino;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "status_aluno")
     private EStatusAluno statusAluno;
 
@@ -31,6 +35,6 @@ public class FichaTreino {
     @JoinColumn(name = "aluno_id", nullable = false)
     private AlunoEntity aluno;
 
-    @OneToMany(mappedBy = "ficha_treino_id")
+    @OneToMany(mappedBy = "fichaTreino")
     private List<ExercicioFicha>  exercicioFichas = new ArrayList<>();
 }
