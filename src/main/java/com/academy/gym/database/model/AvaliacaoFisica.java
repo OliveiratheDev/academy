@@ -1,13 +1,10 @@
 package com.academy.gym.database.model;
 
+import com.academy.gym.enums.EStatusAluno;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Entity
 @RequiredArgsConstructor
@@ -19,26 +16,21 @@ public class AvaliacaoFisica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "data_avaliacao")
-    private LocalDate dataAvaliacao;
-    @NotNull(message = "O peso é obrigatório")
-    @Positive(message = "O peso deve ser maior que zero")
+    private String dataAvaliacao;
+    //@Positive(message = "O peso deve ser maior que zero")
     @Column(nullable = false )
-    private Long peso;
-    @NotNull(message = "A altura é obrigatório")
-    @Positive(message = "A altura deve ser maior que zero ")
+    private String peso;
     @Column(nullable = false )
-    private Long altura;
+    private String  altura;
     @Column(name = "percentual_gordura")
-    private Long percentualGordura;
+    private String percentualGordura;
     @Column(name = "massa_muscular")
-    private Long massaMuscular;
-    private String peitoral;
-    private String cintura;
-    private String braco;
-    private String coxa;
+    private String massaMuscular;
     private String observacoes;
+    private EStatusAluno matricula;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name =  "aluno_id", nullable = false)
     private AlunoEntity aluno;
+
 }
