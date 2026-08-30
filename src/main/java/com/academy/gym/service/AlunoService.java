@@ -32,7 +32,7 @@ public class AlunoService {
         aluno.setEmail(alunoRequest.email());
         aluno.setDataNascimento(alunoRequest.dataNascimento());
         aluno.setTelefone(alunoRequest.telefone());
-        aluno.setStatus(alunoRequest.status());
+        aluno.setMatricula(alunoRequest.matricula());
         return alunoRepository.save(aluno);
     }
 
@@ -58,7 +58,7 @@ public class AlunoService {
     public AlunoEntity statusUpdate(Long id, AlunoStatusRequest alunoRequest) {
       AlunoEntity aluno = alunoRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Aluno não encontrado"));
-      aluno.setStatus(alunoRequest.status());
+      aluno.setMatricula(alunoRequest.status()); ;
       return alunoRepository.save(aluno);
     }
 }
