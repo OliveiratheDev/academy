@@ -23,6 +23,7 @@ public class Exercicios {
     @NotNull(message = "O treino ter que ter nome")
     @Column(nullable = false)
     private String nome;
+    @Enumerated(EnumType.STRING)
     @NotNull(groups =  EGrupoMuscular.class)
     @Column(name = "grupo_muscular", nullable = false)
     private EGrupoMuscular grupoMuscular;
