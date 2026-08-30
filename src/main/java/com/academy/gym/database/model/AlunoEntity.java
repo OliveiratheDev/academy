@@ -1,6 +1,5 @@
 package com.academy.gym.database.model;
 
-import com.academy.gym.dtos.AlunoRequest;
 import com.academy.gym.enums.EStatusAluno;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -37,7 +36,7 @@ public class AlunoEntity {
 
     @NotNull(message = "A data de nascimento é obrigatória")
     @Column(name = "data_nascimento", nullable = false)
-    private LocalDate dataNascimento;
+    private String dataNascimento;
 
     @NotNull(message = "O telefone é obrigatório")
     @Column(nullable = false, length = 11)
@@ -45,7 +44,7 @@ public class AlunoEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private EStatusAluno status = EStatusAluno.ATIVO;
+    private EStatusAluno matricula = EStatusAluno.ATIVO;
 
 
     @Valid
