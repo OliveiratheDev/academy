@@ -23,9 +23,12 @@ public class ExercicioFicha {
     private String observacoes;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ficha_treino_id", nullable = false)
+    @ManyToOne( fetch = FetchType.LAZY, optional = false)
+    @JoinColumn( name = "ficha_treino_id", nullable = false)
     private FichaTreino fichaTreino;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "exercicio_id", nullable = false)
+    private Exercicios exercicio;
 
 }
