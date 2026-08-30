@@ -2,6 +2,7 @@ package com.academy.gym.controller;
 
 import com.academy.gym.database.model.AlunoEntity;
 import com.academy.gym.dtos.AlunoRequest;
+import com.academy.gym.dtos.AlunoResponse;
 import com.academy.gym.dtos.AlunoStatusRequest;
 import com.academy.gym.service.AlunoService;
 import jakarta.validation.Valid;
